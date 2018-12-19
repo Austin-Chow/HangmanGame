@@ -75,7 +75,7 @@ int main(){
 		cin >> guess;
 		//guess = "q";
 
-		// TODO: Allow user to guess entire word or phrases
+		// TODO: Allow user to guess entire word or phrase
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		/*
 		TODO:
