@@ -1,0 +1,59 @@
+#include "Hangman.h"
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+//# include<iostream.h>
+using namespace std; /*declaration allows all elements in the std namespace to be
+                       accessed in an unqualified manner (without the std:: prefix)*/
+//----------------------------------------------------------------------------------------------------------------------
+string dictionary[] = {"Emily","Stanley","Karen"};
+int chosenWord = 0;
+string word = "";
+int wrongGuesses = 0;
+bool gameOver = false;
+//----------------------------------------------------------------------------------------------------------------------
+int main(){
+
+	std::cout << "SAW: Hello, I want to play a game." << endl;
+	std::cout << "The game is simple. Guess all the correct letters in the word." << endl;
+	std::cout << "But be careful, make six incorrect guesses...and you hang to your death." << endl;
+	std::cout << "Live or die, make your choice." <<endl;
+	std::cout << "Let the games begin." <<endl;
+	std::cout << "HAHAHAHAHAHAHAHAHAHAHAHAHAHAHA" <<endl;
+	std::cout << "-------------------------------------------------------------------------" <<endl;
+	std::cout << "Guess a letter:" <<endl;
+
+	while (!gameOver){
+		chosenWord = rand() % (sizeof(dictionary)/sizeof(dictionary[0]));
+		word = dictionary[chosenWord];
+		std::cout << word;
+
+		gameOver = true;
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Hangman::Hangman() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Hangman::~Hangman() {
+	// TODO Auto-generated destructor stub
+}
+
+*/

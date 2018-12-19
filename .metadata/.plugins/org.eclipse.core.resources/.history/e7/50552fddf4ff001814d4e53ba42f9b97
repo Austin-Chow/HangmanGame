@@ -1,0 +1,84 @@
+#include "Hangman.h"
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+//# include<iostream.h>
+using namespace std; /*declaration allows all elements in the std namespace to be
+                       accessed in an unqualified manner (without the std:: prefix)*/
+//----------------------------------------------------------------------------------------------------------------------
+string list[] = {"Emi"};
+
+int chosenWord = 0;
+string word = "";
+int numOfWrongGuesses = 0;
+int numOfGuessesLeft = 5;
+int maxNumOfGuesses = 5;
+bool gameOver = false;
+//----------------------------------------------------------------------------------------------------------------------
+int main(){
+
+	std::cout << "SAW:" << endl;
+	std::cout << "Hello, I want to play a game." << endl;
+	std::cout << "The game is simple. Guess all the correct letters in the word." << endl;
+	std::cout << "But be careful, make six incorrect guesses... and you hang to your death." << endl;
+	std::cout << "Live or die, make your choice." <<endl;
+	std::cout << "Let the games begin." <<endl;
+	std::cout << "HAHAHAHAHAHAHAHAHAHAHAHAHAHAHA" <<endl;
+	std::cout << "_____________________________________________________________________________" <<endl;
+
+	while (gameOver == false){
+		chosenWord = rand() % (sizeof(list)/sizeof(list[0]));
+		word = list[chosenWord];
+
+		string nameArray[word.length()];
+		string guessArray[maxNumOfGuesses];
+		for (unsigned int i = 0; i < static_cast<unsigned int>(word.length()); i++){
+			nameArray[i] = "_";
+		}
+
+		for (unsigned int j = 0; j < static_cast<unsigned int>(word.length()); j++){
+			std::cout << nameArray[j] + " ";
+		}
+		std::cout <<endl;
+
+		string guess;
+		cout << "Guess a letter:" << endl;
+		cin >> guess;
+		//guess = guess.toLower();
+
+		//LOWERCASE EVERYTHINGGGGGGGGGGGGGGGGGGGGGGGGGGG
+		//LIMIT TO ONLY ONE CHAR
+
+		if (word.find(guess) != std::string::npos){ //if guess is correct
+			std::cout << "CORRECT GUESS" << endl;
+			std::cout << "You have " << numOfGuessesLeft << " guesses left." << std::endl;
+		}
+		else if (word.find(guess) == std::string::npos){ //if guess is wrong
+			std::cout << "WRONG GUESS" << endl;
+			numOfGuessesLeft--;
+			std::cout << "You have " << numOfGuessesLeft << " guesses left." << std::endl;
+		}
+		if (numOfGuessesLeft == 0){
+			gameOver = true;
+		}
+	if (gameOver == true){
+		std::cout << "HAHAHAHAHA, YOU DIE!";
+	}
+	}
+}
+
+
+
+
+
+
+/*
+Hangman::Hangman() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Hangman::~Hangman() {
+	// TODO Auto-generated destructor stub
+}
+*/

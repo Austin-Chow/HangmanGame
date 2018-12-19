@@ -1,0 +1,23 @@
+#include "Hangman.h"
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+//# include<iostream.h>
+using namespace std;
+
+int main(){
+	cout<<"Hello World!";
+}
+
+
+/*
+Hangman::Hangman() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Hangman::~Hangman() {
+	// TODO Auto-generated destructor stub
+}
+
+*/

@@ -1,0 +1,36 @@
+#include "Hangman.h"
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+//# include<iostream.h>
+using namespace std; //declaration allows all elements in the std namespace to be
+                     //accessed in an unqualified manner (without the std:: prefix)
+
+int main(){
+	std::cout<<"Hello World, Bitch!";
+	puts("Fuck you asshole bitch")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Hangman::Hangman() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Hangman::~Hangman() {
+	// TODO Auto-generated destructor stub
+}
+
+*/

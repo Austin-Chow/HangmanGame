@@ -1,0 +1,122 @@
+#include "Hangman.h"
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+//# include<iostream.h>
+#include <string>
+using std::string;
+using namespace std; /*declaration allows all elements in the std namespace to be
+                       accessed in an unqualified manner (without the std:: prefix)*/
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+string list[] = {"Stanley"};
+string word = "";
+string allLowerWord = "";
+int numOfWrongGuesses = 0;
+int numOfGuessesLeft = 5;
+int maxNumOfGuesses = 5;
+bool gameOver = false;
+
+string wordAllLowerArray[word.length()];
+
+
+
+string wrongGuessArray[maxNumOfGuesses];
+*/
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+int main(){
+	string list[] = {"Stanley"};
+	string word = list[rand() % (sizeof(list)/sizeof(list[0]))];
+
+	string wordArray[word.length()];
+
+	string guessArray[word.length()];
+	for (unsigned int i = 0; i < static_cast<unsigned int>(word.length()); i++){
+			guessArray[i] = "_";
+	}
+
+	int numOfGuessesLeft = 5;
+	int maxNumOfGuesses = 5;
+	bool gameOver = false;
+
+	string wordAllLowerArray[word.length()];
+	string wrongGuessArray[maxNumOfGuesses];
+
+	//DIALOGUE
+	std::cout << "SAW:" << endl;
+	std::cout << "Hello, I want to play a game." << endl;
+	std::cout << "The game is simple. Guess all the correct letters in the word." << endl;
+	std::cout << "But be careful, make six incorrect guesses... and you hang to your death." << endl;
+	std::cout << "Live or die, make your choice." << endl;
+	std::cout << "Let the games begin." << endl;
+	std::cout << "HAHAHAHAHAHAHAHAHAHAHAHAHAHAHA" << endl;
+	std::cout << "__________________________________________________________________________________________________________________________________________________________" <<endl;
+	std::cout << endl;
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	while (gameOver == false){
+		for (unsigned int j = 0; j < static_cast<unsigned int>(word.length()); j++){
+			std::cout << guessArray[j] + " ";
+		}
+
+		std::cout << endl;
+		std::cout << endl;
+		//string guess = "S";
+		string guess;
+		cout << "Guess a letter: " << endl;
+		cin >> guess;
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		/*
+		TODO:
+		guess = guess.toLower(); //LOWERCASE ALL THE WORDSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+		LIMIT TO ONLY ONE CHARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+		 */
+		if (word.find(guess) != std::string::npos){ //if guess is correct
+			for (unsigned int i = 0; i < static_cast<unsigned int>(word.length()); i++){
+				if (wordArray[i] == guess){
+					std::cout << "HELLO WORLD BITCH.";
+					fflush(stdout);
+					guessArray[i] = wordArray[i];
+				}
+			}
+			std::cout << endl;
+			std::cout << "CORRECT GUESS." << endl;
+		}
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		else if (word.find(guess) == std::string::npos){ //if guess is wrong
+			std::cout << endl;
+			std::cout << "WRONG GUESS." << endl;
+			numOfGuessesLeft--;
+			//TODO: append into wrongGuessArray
+		}
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		if (numOfGuessesLeft == 0){
+			std::cout << "HAHAHAHAHA, YOU DIE!";
+			gameOver = true;
+		}
+		else{
+			if (numOfGuessesLeft > 1){
+				std::cout << "You have " << numOfGuessesLeft << " guesses left." << std::endl;
+			}
+			if (numOfGuessesLeft == 1){
+				std::cout << "You have " << numOfGuessesLeft << " guess left." << std::endl;
+			}
+		}
+		//gameOver = true; //FOR DEBUGGING @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	}
+
+	/*
+	void wordToLower(string wordAllLowerArray[]){
+		for (unsigned int i = 0; i < static_cast<unsigned int>(word.length()); i++){
+			if (wordAllLowerArray[i] >= 65) && (wordAllLowerArray[i] <= 91){
+					wordAllLowerArray[i] = wordAllLowerArray[i] + 32;
+			}
+		}
+	}
+	*/
+
+	//TODO: MAYBE INCLUDE WOULD YOU LIKE TO PLAY AGAIN?
+	return 0;
+}
